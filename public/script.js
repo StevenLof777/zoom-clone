@@ -4,11 +4,12 @@ const videoGrid = document.querySelector('#video-grid');
 // muting video upon arrival
 clientVideo.muted = true;
 
+// Don't need to create id 
 let peer = new Peer(undefined, {
     path: '/peerjs',
     host: '/',
     port: '3030'
-})
+});
 
 let myVideoStream
 navigator.mediaDevices.getUserMedia({
@@ -19,6 +20,11 @@ navigator.mediaDevices.getUserMedia({
     // Load data from stream
     addVideoStream(clientVideo, stream);
 });
+
+
+peer.on('open'), id => {
+    console.log(id)
+}
 
 socket.emit('join-room', ROOM_ID);
 
