@@ -5,6 +5,5 @@ video {
     width: 200px;
     height: 200px;
     border: solid;
-    /* Don't know what object-fit is */
-    /* object-fit: cover; */
+    object-fit: cover;
 } 

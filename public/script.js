@@ -4,7 +4,7 @@ const videoGrid = document.querySelector('#video-grid');
 // muting video upon arrival
 clientVideo.muted = true;
 
-Don't need to create id 
+// Don't need to create id 
 let peer = new Peer(undefined, {
     path: '/peerjs',
     host: '/',
@@ -21,16 +21,16 @@ navigator.mediaDevices.getUserMedia({
     addVideoStream(clientVideo, stream);
 });
 
+// CAMERA DOESN'T LIKE socket.io
+// peer.on('open'), id => {
+//     console.log(id)
+// }
 
-peer.on('open'), id => {
-    console.log(id)
-}
+// socket.emit('join-room', ROOM_ID);
 
-socket.emit('join-room', ROOM_ID);
-
-socket.on('user-connected', () => {
-    connectToNewUser();
-});
+// socket.on('user-connected', () => {
+//     connectToNewUser();
+// });
 
 
 const connectToNewUser = () => {
